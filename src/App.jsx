@@ -5,12 +5,18 @@ import { Toaster } from 'react-hot-toast';
 import ErrorPage from './components/ErrorPage';
 import Login from './components/Login';
 import HomePage from './components/home/HomePage';
+import PrivateRoute from './private/PrivateRoute';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <HomePage />,
+      element: (
+        <PrivateRoute>
+          <HomePage />
+        </PrivateRoute>
+      ),
     },
 
     {
@@ -22,12 +28,15 @@ function App() {
       element: <ErrorPage />,
     },
   ]);
+  const queryClient = new QueryClient();
   return (
     <>
-      <AuthProvider>
-        <RouterProvider router={router} />
-        <Toaster />
-      </AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <RouterProvider router={router} />
+          <Toaster />
+        </AuthProvider>
+      </QueryClientProvider>
     </>
   );
 }
