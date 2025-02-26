@@ -24,7 +24,7 @@ export default function TaskCard({ task }) {
   const handleDelete = async () => {
     try {
       const res = await axios.delete(
-        `task-management-server-rho-eight.vercel.app/tasks/${task._id}`
+        `https://task-management-server-1441.onrender.com/tasks/${task._id}`
       );
       if (res?.data?.success) {
         refetchTasks();

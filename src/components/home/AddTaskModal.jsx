@@ -14,7 +14,7 @@ export default function AddTaskModal({ isOpen, onClose }) {
     e.preventDefault();
     try {
       const res = await axios.post(
-        'task-management-server-rho-eight.vercel.app/tasks',
+        'https://task-management-server-1441.onrender.com/tasks',
         {
           title,
           description,

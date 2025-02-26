@@ -131,7 +131,7 @@ export default function TaskBoard() {
       });
       try {
         const res = await axios.put(
-          'task-management-server-rho-eight.vercel.app/tasks',
+          'https://task-management-server-1441.onrender.com/tasks',
           reorderTasks
         );
 
@@ -160,7 +160,7 @@ export default function TaskBoard() {
       });
       try {
         const res = await axios.put(
-          'task-management-server-rho-eight.vercel.app/tasks',
+          'https://task-management-server-1441.onrender.com/tasks',
           finalOrder
         );
 
